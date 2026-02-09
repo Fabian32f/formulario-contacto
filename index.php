@@ -16,28 +16,28 @@
       
       <h1>Contáctanos</h1>
 
-      <form action="index.php" method="POST" novalidate>
+      <form action="php/procesar.php" method="POST" novalidate>
 
         <div class="form-row">
           
           <div class="form-group">
             <label for="nombre">Nombre <span class="asterisk">*</span></label>
-            <input type="text" id="nombre" name="nombre" required>
-            <span class="error-text">Este campo es obligatorio</span>
+            <input type="text" id="nombre" name="nombre" required aria-required="true">
+            <span class="error-text" id="error-nombre">Este campo es obligatorio</span>
           </div>
 
           <div class="form-group">
             <label for="apellido">Apellido <span class="asterisk">*</span></label>
-            <input type="text" id="apellido" name="apellido" required>
-            <span class="error-text">Este campo es obligatorio</span>
+            <input type="text" id="apellido" name="apellido" required aria-required="true">
+            <span class="error-text" id="error-apellido">Este campo es obligatorio</span>
           </div>
 
         </div>
 
         <div class="form-group">
           <label for="email">Dirección de correo electrónico <span class="asterisk">*</span></label>
-          <input type="email" id="email" name="email" required>
-          <span class="error-text">Por favor, introduce una dirección de correo válida</span>
+          <input type="email" id="email" name="email" required aria-required="true">
+          <span class="error-text" id="error-email">Por favor, introduce una dirección de correo válida</span>
         </div>
 
         <div class="form-group">
@@ -56,22 +56,22 @@
               </div>
             </div>
             
-            <span class="error-text">Por favor, selecciona un tipo de consulta</span>
+            <span class="error-text" id="error-tipo-consulta">Por favor, selecciona un tipo de consulta</span>
           </fieldset>
         </div>
 
         <div class="form-group">
           <label for="mensaje">Mensaje <span class="asterisk">*</span></label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-          <span class="error-text">Este campo es obligatorio</span>
+          <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true"></textarea>
+          <span class="error-text" id="error-mensaje">Este campo es obligatorio</span>
         </div>
 
         <div class="form-group checkbox-container">
           <div class="checkbox-wrapper">
-            <input type="checkbox" id="consentimiento" name="consentimiento" required>
+            <input type="checkbox" id="consentimiento" name="consentimiento" required aria-required="true">
             <label for="consentimiento">Acepto ser contactado por el equipo <span class="asterisk">*</span></label>
           </div>
-          <span class="error-text">Para enviar este formulario, por favor consiente ser contactado</span>
+          <span class="error-text" id="error-consentimiento">Para enviar este formulario, por favor consiente ser contactado</span>
         </div>
 
         <button type="submit" class="submit-btn">Enviar</button>
@@ -85,13 +85,16 @@
     Desarrollado por <a href="#">Fabian Kinil Adame</a>.
   </div>
 
-  <div id="success-message" class="toast hidden">
+  <div id="success-message" class="toast <?php echo isset($_GET['success']) ? '' : 'hidden'; ?>" role="alert" aria-live="polite">
     <div class="toast-header">
       <img src="assets/images/icon-success-check.svg" alt="Éxito">
       <span>¡Mensaje Enviado!</span>
     </div>
     <p>Gracias por completar el formulario. ¡Nos pondremos en contacto pronto!</p>
   </div>
+
+  <!-- Script de validación JavaScript -->
+  <script src="js/validation.js"></script>
 
 </body>
 </html>
