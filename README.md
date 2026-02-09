@@ -30,6 +30,54 @@ Tus usuarios deberían poder:
 
 Asegúrate de documentar tu configuración y cualquier instrucción especial para el uso o acceso al site del formulario  para que el docente puedan entender y ejecutar tu proyecto fácilmente.
 
+## Configuración técnica del proyecto
+
+### Configuración de Alojamiento (InfinityFree)
+
+El proyecto fue desplegado utilizando el servicio de hosting gratuito **InfinityFree**, permitiendo alojar el frontend, backend y la base de datos MySQL en un entorno de producción real.
+
+- **Creación de Base de Datos:**  
+  Se creó una base de datos MySQL desde el panel de InfinityFree con el nombre técnico:  
+  `if0_41117161_contact_form_db`.
+
+- **Gestión de Archivos:**  
+  Todos los archivos del proyecto (`index.php`, carpetas `css`, `js`, `assets` y `php`) fueron cargados en el directorio raíz del servidor denominado **`htdocs`**, que corresponde al punto de acceso público del sitio.
+
+- **Importación de la Estructura:**  
+  Se utilizó **phpMyAdmin** para ejecutar el script SQL que crea la tabla `envios`, permitiendo el almacenamiento persistente de los datos enviados desde el formulario.
+
+- **URL de Producción:**  
+  El sitio se encuentra completamente funcional y accesible en la siguiente dirección:  
+  👉 https://fabian-kinil.infinityfree.me
+
+---
+
+### Configuración del archivo `php/db.php`
+
+Para establecer la conexión entre el backend en PHP y el servidor MySQL remoto, se configuró el archivo `db.php` con las credenciales proporcionadas por InfinityFree.  
+Este archivo funciona como el puente de comunicación entre la aplicación y la base de datos utilizando la extensión `mysqli`.
+
+```php
+<?php
+// Credenciales de producción para el servidor remoto
+$host = ""; // MySQL Hostname asignado por el panel
+$user = "";            // MySQL Username específico de la cuenta
+$password = "";       // Account Password de hosting
+$dbname = "if0_41117161_contact_form_db"; // Nombre de la base de datos creada
+
+// Conexión al servidor MySQL
+$conn = mysqli_connect($host, $user, $password, $dbname);
+
+// Verificación del estado de la conexión
+if (!$conn) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+?>
+```
+
+
+
+
 ### Captura de pantalla
 
 ![](./screenshot-formulario.jpg)
@@ -40,20 +88,16 @@ Asegúrate de documentar tu configuración y cualquier instrucción especial par
 ![](./screenshot-mobile1.png)
 ![](./screenshot-mobile2.png)
 
-Agrega una captura de pantalla de tu solución. La forma más fácil de hacerlo es usar un navegador para ver tu proyecto, hacer clic derecho en la página y seleccionar "Tomar una captura de pantalla". Puedes elegir una captura de pantalla de altura completa o una recortada según la longitud de la página. Si es muy larga, puede ser mejor recortarla.
-
-
-Luego recorta/optimiza/edita tu imagen como desees, agrégala a tu carpeta de proyecto y actualiza la ruta del archivo en la imagen de arriba.
 
 
 ### Enlaces
 
 - URL en GITHUB de tu proyecto:https://github.com/Fabian32f/formulario-contacto.git
-- URL del site:[Agrega la URL del sitio en vivo aquí](https://your-live-site-url.com)
+- URL del site:[https://fabian-kinil.infinityfree.me]
 
 ## Autor
 - Nombre completo: Fabian Kinil Adame
 - N° Control: 221k0022
 - Grupo: A
-- Sitio  - [Agrega tu nombre aquí](https://www.your-site.com)
+- Sitio  - [Formulario de Contacto](https://fabian-kinil.infinityfree.me)
 - Github - [@Fabian32f](https://github.com/Fabian32f)
