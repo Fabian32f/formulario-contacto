@@ -1,0 +1,64 @@
+/* css/styles.css */
+
+:root {
+  /* COLORES PRIMARIOS */
+  --color-green-200: hsl(148, 38%, 91%);
+  --color-green-600: hsl(169, 82%, 27%);
+  --color-red: hsl(0, 66%, 54%);
+
+  /* COLORES NEUTROS */
+  --color-white: hsl(0, 0%, 100%);
+  --color-grey-500: hsl(186, 15%, 59%);
+  --color-grey-900: hsl(187, 24%, 22%);
+
+  /* TIPOGRAFÍA */
+  --font-main: 'Karla', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}
+
+/* RESETEO BÁSICO (Crucial para que se vea igual en todos los navegadores) */
+* {
+  box-sizing: border-box; /* Esto evita que el padding deforme el tamaño de los inputs */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-green-200); /* Fondo general de la página según diseño */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* CARGA DE FUENTES LOCALES (del assets) */
+@font-face {
+  font-family: 'Karla';
+  src: url('../assets/fonts/static/Karla-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('../assets/fonts/static/Karla-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Estilos para el pie de página */
+.autor {
+  margin-top: 2rem;
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-grey-900);
+}
+
+.autor a {
+  color: var(--color-green-600);
+  font-weight: bold;
+  text-decoration: none;
+}
